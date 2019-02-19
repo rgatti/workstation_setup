@@ -1,0 +1,11 @@
+---
+- name: Installing kvm packages
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - qemu-kvm
+      - libvirt-clients
+      - libvirt-daemon-system
+      - virtinst
+      - bridge-utils

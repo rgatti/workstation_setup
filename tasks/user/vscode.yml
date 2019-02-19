@@ -1,0 +1,11 @@
+---
+- name: Installing vscode extensions
+  shell: "code --install-extension {{ item }}"
+  with_items:
+    - ms-python.python
+    - ms-vscode.Go
+    - redhat.java
+    - robertohuertasm.vscode-icons
+    - PeterJausovec.vscode-docker
+    - eamodio.gitlens
+    - zhuangtongfa.Material-theme

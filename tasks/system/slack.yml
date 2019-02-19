@@ -1,0 +1,11 @@
+---
+- name: Checking for slack package
+  command: dpkg-query --show --showformat='${db:Status-Status}\n' slack-desktop
+  register: slack_status
+  changed_when: false
+
+- name: Installing slack package
+  apt:
+    deb: https://downloads.slack-edge.com/linux_releases/slack-desktop-3.3.7-amd64.deb
+    state: present
+  when: slack_status != 'installed'

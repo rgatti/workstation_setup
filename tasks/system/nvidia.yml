@@ -1,0 +1,15 @@
+---
+
+
+- name: Adding nVidia PPA
+  apt_repository:
+    repo: ppa:graphics-drivers/ppa
+  when: nvidia_gpu.rc == 0
+
+- name: Installing nVidia graphics drivers
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - nvidia-390
+    - nvidia-settings
+  when: nvidia_gpu.rc == 0

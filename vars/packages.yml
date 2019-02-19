@@ -1,0 +1,20 @@
+---
+packages:
+  - stow
+  - wget
+  - curl
+  - glances
+  - htop
+  - silversearcher-ag
+  - tree
+  - vim
+  - tmux
+  - git
+  - python-minimal
+  - python3-pip
+  - jq
+  - build-essential
+  - chromium-browser
+  - chrome-gnome-shell
+  - keepass2
+  - gnome-tweak-tool

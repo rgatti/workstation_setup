@@ -1,0 +1,5 @@
+---
+# User tasks
+- hosts: localhost
+  tasks:
+    - import_tasks: tasks/user/vscode.yml
