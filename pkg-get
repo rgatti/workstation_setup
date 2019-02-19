@@ -1,0 +1,37 @@
+#!/bin/bash
+
+set -eu
+
+package=${1}
+yaml_src="  - ${package}"
+package_exists=$(apt-cache show ${package} &>/dev/null && echo true || echo false)
+package_added=$(grep -e "^${yaml_src}$" vars/packages.yml &>/dev/null && echo true || echo false)
+
+# https://stackoverflow.com/questions/59895/get-the-source-directory-of-a-bash-script-from-within-the-script-itself
+source="${BASH_SOURCE[0]}"
+while [ -h "${source}" ]; do
+    dir="$(cd -P "$(dirname "${source}")" >/dev/null 2>&1 && pwd)"
+    source="$(readlink "${source}")"
+    [[ ${source} != /* ]] && source="${dir}/${source}"
+done
+pushd "$(cd -P "$(dirname "${source}" )" >/dev/null 2>&1 && pwd)"
+
+if ! ${package_exists}; then
+    echo "Package '${package}' not found in apt cache"
+    popd
+    exit 1
+fi
+
+if ${package_added}; then
+    echo "Package '${package}' exists in packages.yml"
+    popd
+    exit 1
+fi
+
+echo "  - ${package}" >> vars/packages.yml
+git add vars/packages.yml
+git commit -m "Add package ${package}"
+git push origin master
+ansible-playbook -i inventory -K system.yml --tags packages
+
+popd
