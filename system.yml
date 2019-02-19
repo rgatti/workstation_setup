@@ -5,8 +5,9 @@
     - vars/packages.yml
   tasks:
     - import_tasks: tasks/system/default_packages.yml
+      tags:
+        - packages
     - import_tasks: tasks/system/vscode.yml
     - import_tasks: tasks/system/slack.yml
     - import_tasks: tasks/system/spotify.yml
     - import_tasks: tasks/system/dropbox.yml
-    - import_tasks: tasks/system/kvm.yml

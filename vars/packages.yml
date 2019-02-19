@@ -18,3 +18,10 @@ packages:
   - chrome-gnome-shell
   - keepass2
   - gnome-tweak-tool
+  - qemu-kvm
+  - libvirt-clients
+  - libvirt-daemon-system
+  - virtinst
+  - bridge-utils
+  - libosinfo-bin
+  - libguestfs-tools
