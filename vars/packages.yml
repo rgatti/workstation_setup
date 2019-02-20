@@ -27,3 +27,4 @@ packages:
   - libguestfs-tools
   - openssh-server
   - openvpn
+  - mysql-client
