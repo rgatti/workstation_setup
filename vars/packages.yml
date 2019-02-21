@@ -28,3 +28,4 @@ packages:
   - openssh-server
   - openvpn
   - mysql-client
+  - xclip
