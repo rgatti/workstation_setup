@@ -29,3 +29,4 @@ packages:
   - openvpn
   - mysql-client
   - xclip
+  - pkg-config
