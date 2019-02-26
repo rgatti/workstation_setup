@@ -31,3 +31,4 @@ packages:
   - xclip
   - pkg-config
   - zip
+  - zlib1g-dev
