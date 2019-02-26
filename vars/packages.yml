@@ -10,7 +10,7 @@ packages:
   - vim
   - tmux
   - git
-  - python-minimal
+  - python
   - python3-pip
   - jq
   - build-essential
