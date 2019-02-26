@@ -11,3 +11,4 @@
     - import_tasks: tasks/system/slack.yml
     - import_tasks: tasks/system/spotify.yml
     - import_tasks: tasks/system/dropbox.yml
+    - import_tasks: tasks/system/docker.yml

@@ -1,0 +1,28 @@
+---
+- name: Adding docker repository key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: Adding docker repository
+  apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
+    filename: docker
+    state: present
+
+- name: Installing docker
+  apt:
+    name: docker-ce
+    state: present
+    update_cache: yes
+
+- name: Ensuring docker group exists
+  group:
+    name: docker
+    state: present
+
+- name: Adding rgatti to docker group
+  user:
+    name: rgatti
+    groups: docker
+    append: yes
