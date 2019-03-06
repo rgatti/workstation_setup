@@ -33,3 +33,4 @@ packages:
   - zip
   - zlib1g-dev
   - unzip
+  - ssh-askpass
